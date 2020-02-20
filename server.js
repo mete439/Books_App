@@ -81,16 +81,16 @@ app.put('/books/details/:id', (request, response) =>{
 })
 
 // delete route
-app.delete('/books/details/:id', (request, response) => {
-  let id = request.params.id;
+// app.delete('/books/details/:id', (request, response) => {
+//   let id = request.params.id;
 
-  let SQL = 'DELETE FROM libraries WHERE id=$1'
-  let values = [id];
+//   let SQL = 'DELETE FROM libraries WHERE id=$1'
+//   let values = [id];
 
-  client.query(SQL, values)
-    .then(() => {response.redirect('/')})
-    .catch(() => { console.log('error') })
-})
+//   client.query(SQL, values)
+//     .then(() => {response.redirect('/')})
+//     .catch(() => { console.log('error') })
+// })
 
 
 
@@ -104,20 +104,20 @@ function getBooks(request, response){
   .catch(() => { console.log('error')});
 }
 
-function getURL(request, response) {
-  let searchQuery = request.body.search; // search bar
-  let title = request.body.title; // title radio
-  let author = request.body.author; // author radio
+// function getURL(request, response) {
+//   let searchQuery = request.body.search; // search bar
+//   let title = request.body.title; // title radio
+//   let author = request.body.author; // author radio
 
   
-  if (title) {
-    return url += `+intitle:${searchQuery}`;
-  } else if (author) {
-    return url += `+inauthor:${searchQuery}`;
-  } else {
-    response.render('pages/error.ejs');
-  }
-};
+//   if (title) {
+//     return url += `+intitle:${searchQuery}`;
+//   } else if (author) {
+//     return url += `+inauthor:${searchQuery}`;
+//   } else {
+//     response.render('pages/error.ejs');
+//   }
+// };
 
 function createBookArray(request, response) {
   getURL(request, response);
